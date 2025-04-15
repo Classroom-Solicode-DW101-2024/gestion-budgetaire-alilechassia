@@ -5,7 +5,7 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
