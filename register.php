@@ -53,30 +53,34 @@ if (isset($_POST['registerBtn'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>register</title>
 </head>
 <body>
 <form method="POST" action="register.php">
     <label>Nom:</label>
     <input type="text" name="nom" placeholder="Nom">
+
     <?php if (isset($errors['nom'])): ?>
         <p><?php echo $errors['nom']; ?></p>
     <?php endif; ?>
 
     <label>Email:</label>
     <input type="email" name="email" placeholder="Email">
+
     <?php if (isset($errors['email'])): ?>
         <p><?php echo $errors['email']; ?></p>
     <?php endif; ?>
 
     <label>Mot de passe:</label>
     <input type="password" name="password" placeholder="Mot de passe">
+
     <?php if (isset($errors['password'])): ?>
         <p><?php echo $errors['password']; ?></p>
     <?php endif; ?>
 
     <label>Confirmer mot de passe:</label>
     <input type="password" name="confirm_password" placeholder="Confirmez le mot de passe">
+
     <?php if (isset($errors['confirm_password'])): ?>
         <p><?php echo $errors['confirm_password']; ?></p>
     <?php endif; ?>
