@@ -8,7 +8,6 @@ if (!isset($_SESSION['user']['id'])) {
 $userId = $_SESSION['user']['id'];
 $pdo = new PDO("mysql:host=localhost;dbname=gestion_budget", "root", "");
 
-// Fonction pour obtenir le total des revenus
 function getTotalRevenu($pdo, $userId) {
     $stmt = $pdo->prepare("
         SELECT SUM(t.montant) AS total 
@@ -20,7 +19,6 @@ function getTotalRevenu($pdo, $userId) {
     return $stmt->fetchColumn() ?: 0;
 }
 
-// Fonction pour obtenir le total des dépenses
 function getTotalDepense($pdo, $userId) {
     $stmt = $pdo->prepare("
         SELECT SUM(t.montant) AS total 
@@ -32,7 +30,6 @@ function getTotalDepense($pdo, $userId) {
     return $stmt->fetchColumn() ?: 0;
 }
 
-// Fonction pour obtenir les 5 dernières transactions
 function getRecentTransactions($pdo, $userId) {
     $stmt = $pdo->prepare("
         SELECT t.*, c.nom AS categorie, c.type 
@@ -46,7 +43,6 @@ function getRecentTransactions($pdo, $userId) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// Récupération des données
 $totalRevenu = getTotalRevenu($pdo, $userId);
 $totalDepense = getTotalDepense($pdo, $userId);
 $solde = $totalRevenu - $totalDepense;
